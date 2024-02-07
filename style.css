@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, serif;
+}
+
+#soundButton{
+    height: 100px;
+    width: 100px;
+    background-color: #484747;
+    margin-top: 10px;
+    padding: 10px;
+    background-size: cover;
+}
+
+#obj {
+    height: 70px;
+    width: 80px;
+    object-fit: cover;
+    background-size: cover;
+}
+
