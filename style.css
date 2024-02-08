@@ -12,7 +12,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(0,51,62);
+    background-color: #282828;
 }
 
 #soundButton{
@@ -55,13 +55,14 @@ body{
 }
 
 #soundButton, #edit-btn {
-    background-color: #c1c1c1;
+    background-color: #0c0b0b;
     border: 2px solid darkcyan;
     border-radius: 20px;
-    transition: 0.1s;
+    transition: 0.9s;
 }
 
 #soundButton:active {
+    transition: 0.1s;
     background-color: #68ffc8;
     box-shadow: 0 0 20px #67fdc6;
 }

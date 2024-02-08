@@ -2,6 +2,7 @@ import { images, soundFiles } from './fileNames.js';
 const editBtn = document.getElementById('edit-btn');
 const buttons = document.getElementById('buttons');
 const sounds = document.getElementById('sounds');
+const keyBoardArray = ['1', '2', '3', '4', 'q', 'w', 'e', 'r', 'a', 's', 'd', 'f', 'z', 'x', 'c', 'v'];
 let btnArray = [];
 let activeSoundFile = '';
 let activeImageFile = '';
@@ -11,6 +12,9 @@ function createSoundBtn(id) {
         id: id,
         filename: 'sounds/18076__daven__01_sb_bass_hit_c.wav'
     };
+}
+function buttonEvent(sBtn) {
+    sBtn.style;
 }
 editBtn.addEventListener('click', () => {
     edit = !edit;
@@ -37,6 +41,23 @@ for (let i = 0; i <= 15; i++) {
             soundButton.style.backgroundImage = activeImageFile;
         }
     });
+    window.addEventListener('keydown', (e) => {
+        if (e.key === keyBoardArray[i]) {
+            let sound = new Audio(soundBtnObj.filename);
+            document.body.style.backgroundColor = '#202020';
+            if (!edit) {
+                sound.play().then();
+            }
+            else {
+                soundBtnObj.filename = activeSoundFile;
+                soundButton.style.backgroundImage = activeImageFile;
+            }
+        }
+    });
+    window.addEventListener('keyup', (e) => {
+        if (e.key === keyBoardArray[i])
+            document.body.style.backgroundColor = '#282828';
+    });
     buttons.append(soundButton);
 }
 for (let i = 0; i <= images.length; i++) {
@@ -45,12 +66,14 @@ for (let i = 0; i <= images.length; i++) {
     obj.style.backgroundImage = `url('img/${images[i]}')`;
     sounds.append(obj);
     const soundPreview = new Audio(`sounds/${soundFiles[i]}`);
+    let playing = false;
     obj.addEventListener('click', () => {
+        playing = !playing;
         if (!edit) {
-            soundPreview.play().then();
+            !playing ? soundPreview.pause() : soundPreview.play();
         }
         else {
-            soundPreview.play().then();
+            !playing ? soundPreview.pause() : soundPreview.play();
             activeImageFile = `url(img/${images[i]})`;
             activeSoundFile = `sounds/${soundFiles[i]}`;
         }
