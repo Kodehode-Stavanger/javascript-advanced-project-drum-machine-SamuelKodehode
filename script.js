@@ -19,10 +19,12 @@ editBtn.addEventListener('click', () => {
     edit
         ? ((document.body.style.backgroundColor = 'rgb(79,79,79)'),
             (editBtn.style.backgroundColor = 'white'),
-            (editBtn.textContent = 'playMode'))
+            (editBtn.textContent = 'playMode'),
+            (editTips.textContent = 'click the sound you want use then click the button you want to assign it to'))
         : ((document.body.style.backgroundColor = 'rgb(0,51,62)'),
             (editBtn.style.backgroundColor = 'greenyellow'),
-            (editBtn.textContent = 'Edit mode'));
+            (editBtn.textContent = 'Edit mode'),
+            (editTips.textContent = 'enter edit mode to assign sounds to buttons'));
 });
 for (let i = 0; i <= 15; i++) {
     const soundBtnObj = createSoundBtn(i);
